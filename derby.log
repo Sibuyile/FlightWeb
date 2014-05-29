@@ -1,20 +1,7 @@
-Sun Apr 27 17:20:49 SAST 2014 : Apache Derby Network Server - 10.8.3.0 - (1405108) started and ready to accept connections on port 1527
+Mon May 12 23:18:45 SAST 2014 : Apache Derby Network Server - 10.8.3.0 - (1405108) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sun Apr 27 17:20:59 SAST 2014:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-0145-a3c6-3cc2-ffffdb2627e4 
-on database directory /home/stud/NetBeansProjects/flightsystemweb/sample  with class loader sun.misc.Launcher$AppClassLoader@1e565bd 
-Loaded from file:/home/stud/java/jdk1.7.0_51/db/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_51-b13
-user.dir=/home/stud/java/jdk1.7.0_51/db
-os.name=Linux
-os.arch=i386
-os.version=3.2.0-60-generic
-derby.system.home=/home/stud/NetBeansProjects/flightsystemweb
-Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Sun Apr 27 17:23:26 SAST 2014:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance 2589c06b-0145-a3c6-3cc2-ffffdb2627e4 
+Mon May 12 23:18:46 SAST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-0145-f24d-55a9-ffffdb2627e4 
 on database directory /home/stud/NetBeansProjects/flightsystemweb/flights  with class loader sun.misc.Launcher$AppClassLoader@1e565bd 
 Loaded from file:/home/stud/java/jdk1.7.0_51/db/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -25,7 +12,7 @@ os.arch=i386
 os.version=3.2.0-60-generic
 derby.system.home=/home/stud/NetBeansProjects/flightsystemweb
 Database Class Loader started - derby.database.classpath=''
-Sun Apr 27 17:23:29 SAST 2014 Thread[DRDAConnThread_5,5,main] (XID = 287), (SESSIONID = 2), (DATABASE = flights), (DRDAID = {5}), Cleanup action starting
+Mon May 12 23:24:47 SAST 2014 Thread[DRDAConnThread_4,5,main] (XID = 324), (SESSIONID = 2), (DATABASE = flights), (DRDAID = {2}), Cleanup action starting
 java.sql.SQLNonTransientConnectionException: Connection authentication failure occurred.  Reason: Invalid authentication..
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
@@ -75,63 +62,4 @@ java.sql.SQLException: Connection authentication failure occurred.  Reason: Inva
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
 ============= end nested exception, level (1) ===========
 Cleanup action completed
-Sun Apr 27 17:23:29 SAST 2014 Thread[DRDAConnThread_5,5,main] (DATABASE = flights), (DRDAID = {5}), Connection authentication failure occurred.  Reason: Invalid authentication..
-Sun Apr 27 17:23:53 SAST 2014 Thread[DRDAConnThread_3,5,main] (XID = 288), (SESSIONID = 3), (DATABASE = flights), (DRDAID = {6}), Cleanup action starting
-java.sql.SQLNonTransientConnectionException: Connection authentication failure occurred.  Reason: Invalid authentication..
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection30.<init>(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
-	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
-	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-Caused by: java.sql.SQLException: Connection authentication failure occurred.  Reason: Invalid authentication..
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	... 19 more
-============= begin nested exception, level (1) ===========
-java.sql.SQLException: Connection authentication failure occurred.  Reason: Invalid authentication..
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection30.<init>(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
-	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
-	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-============= end nested exception, level (1) ===========
-Cleanup action completed
-Sun Apr 27 17:23:53 SAST 2014 Thread[DRDAConnThread_3,5,main] (DATABASE = flights), (DRDAID = {6}), Connection authentication failure occurred.  Reason: Invalid authentication..
-----------------------------------------------------------------
-Sun Apr 27 17:28:33 SAST 2014: Shutting down Derby engine
-----------------------------------------------------------------
-Sun Apr 27 17:28:33 SAST 2014:
-Shutting down instance 2589c06b-0145-a3c6-3cc2-ffffdb2627e4 on database directory /home/stud/NetBeansProjects/flightsystemweb/flights with class loader sun.misc.Launcher$AppClassLoader@1e565bd 
-----------------------------------------------------------------
-Sun Apr 27 17:28:33 SAST 2014:
-Shutting down instance a816c00e-0145-a3c6-3cc2-ffffdb2627e4 on database directory /home/stud/NetBeansProjects/flightsystemweb/sample with class loader sun.misc.Launcher$AppClassLoader@1e565bd 
+Mon May 12 23:24:47 SAST 2014 Thread[DRDAConnThread_4,5,main] (DATABASE = flights), (DRDAID = {2}), Connection authentication failure occurred.  Reason: Invalid authentication..

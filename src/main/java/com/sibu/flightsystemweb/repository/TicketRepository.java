@@ -8,11 +8,13 @@ package com.sibu.flightsystemweb.repository;
 
 import com.sibu.flightsystemweb.domain.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author stud
  */
-public interface TicketRepository extends JpaRepository<Ticket, Long> {
+@Repository
+public interface TicketRepository extends JpaRepository<Ticket, Long>{
     
 }

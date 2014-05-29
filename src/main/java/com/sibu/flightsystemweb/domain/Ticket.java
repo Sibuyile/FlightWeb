@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,9 +10,8 @@ package com.sibu.flightsystemweb.domain;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,63 +25,120 @@ import javax.persistence.OneToMany;
 @Entity
 public class Ticket implements Serializable {
     private static final long serialVersionUID = 1L;
-@Id
-    
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-@OneToMany(cascade = CascadeType.ALL)
+    
+    private String ticketID;
+    private String ticketNumber;
+
+   // private String className;
+    
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "ticket_id")
-	private String ticketNumber;
-	private String passengerName;
-	private String passengerSurname;
-	private String seatsBooked;
-        @Embedded
-        private CancelTicket canTic;
-        private Payment pm;
-        private PrintTicket pt;
+    private List <Passenger> pass;
+    private Flights fly;
 
-    public CancelTicket getCanTic() {
-        return canTic;
+    
+     private Ticket () {
+     }
+    
+    private Ticket(Builder builder)
+    {
+        id = builder.id;
+        ticketNumber = builder.ticketNumber;
+        ticketID = builder.ticketID;
+        pass = builder.pass;
+     
+        fly = builder.fly;
+             
     }
+    
+    
+    public static class Builder {
+        private Long id;
+     
+        private String ticketNumber;
+        private String ticketID;
+        private List <Passenger> pass;
+        private Flights fly;
+      
+  
 
-    public Payment getPm() {
-        return pm;
-    }
+        public Builder(String ticID) {
+            
+            this.ticketID = ticID;
+  
+        }
+        
+        
+        
+        public Builder()
+        {
+            
+        }
+        
+        public Builder id(Long i)
+        {
+            id = i;
+            return this;
+        }
+        
+        public Builder ticketNumber(String tn)
+        {
+            ticketNumber = tn;
+            return this;
+        }
+        
+        public Builder pass(List <Passenger> p)
+        {
+            pass = p;
+            return this;
+        }
+        
+         public Builder fly(Flights f)
+        {
+            fly = f;
+            return this;
+        }
+         
+     
+        public Builder ticket(Ticket t)
+        {
+           id = t.getId();
+           ticketNumber = t.getTicketNumber();
+           ticketID = t.getTicketID();
+           pass = t.getPass();
 
-    public PrintTicket getPt() {
-        return pt;
+           
+          
+            return this;
+             
+        }
+        
+        public Ticket build()
+        {
+           return new Ticket(this);
+            
+        }
+        
     }
-
-    public SearchTicket getSt() {
-        return st;
-    }
-
-    public List<ListOfPassengers> getLop() {
-        return lop;
-    }
-        private SearchTicket st;
-        List <ListOfPassengers> lop;
+    
     public String getTicketNumber() {
         return ticketNumber;
     }
 
-    public String getPassengerName() {
-        return passengerName;
+    public String getTicketID() {
+        return ticketID;
     }
 
-    public String getPassengerSurname() {
-        return passengerSurname;
+    public List <Passenger> getPass() {
+        return pass;
     }
 
-    public String getSeatsBooked() {
-        return seatsBooked;
+    public Flights getFly() {
+        return fly;
     }
-
-    public String getAmountPaid() {
-        return amountPaid;
-    }
-	private String amountPaid;
-
 
     public Long getId() {
         return id;

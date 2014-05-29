@@ -9,6 +9,7 @@ package com.sibu.flightsystemweb.app.conf;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -25,6 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 
 @Configuration
+@ComponentScan("com.sibu.flightsystemweb")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.sibu.flightsystemweb.repository")
 public class ConnectionConfig {
@@ -34,8 +36,8 @@ public class ConnectionConfig {
         BasicDataSource ds = new org.apache.commons.dbcp.BasicDataSource();
         ds.setDriverClassName("org.apache.derby.jdbc.ClientDriver");
         ds.setUrl("jdbc:derby://localhost:1527/flights");
-        ds.setUsername("airport");
-        ds.setPassword("airport");
+        ds.setUsername("app");
+        ds.setPassword("app");
         return ds;
     }
 

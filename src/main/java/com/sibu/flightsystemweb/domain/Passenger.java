@@ -6,17 +6,13 @@
 
 package com.sibu.flightsystemweb.domain;
 
+
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -28,20 +24,26 @@ public class Passenger implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String details;
-    private String dOB;
-    private String emailAdd;
+    
+    private String passName;
+    private String passDob;
+    private String passEmail;
+    private String passPhoneNo;
+    private String passAddress;
+    private String travelDate;
+
     @Column(unique = true)
-    private String phoneNo;
-    @Embedded
-    private PassengerType pT;
-    private Payment pm;
-    private Ticket tic;
+    private String passengerID;
+   
+  
+  //  private Ticket tic;
  //   @OneToMany(cascade = CascadeType.ALL)
  //   @JoinColumn(name = "passenger_id")
     
     
-      private Passenger () {
+    private Passenger ()
+    {
+        
     }
     
     
@@ -49,18 +51,28 @@ public class Passenger implements Serializable {
     {
        // super();
        
-        details = builder.details;
-        dOB = builder.dOB;
-        phoneNo = builder.phoneNo;
-        emailAdd = builder.emailAdd;
+        passName = builder.passName;
+        passDob = builder.passDob;
+        passPhoneNo = builder.passPhoneNo;
+        passEmail = builder.passEmail;
+        passengerID = builder.passengerID;
+        passAddress = builder.passAddress;
+        travelDate = builder.travelDate;
+    
+      // tic = builder.tic;
+       
     }
     
      public static class Builder {
         private String passengerID;
-        private String details;
-        private String phoneNo;
-        private String dOB;
-        private String emailAdd;
+        private String passName;
+        private String passPhoneNo;
+        private String passDob;
+        private String passEmail;
+        private String passAddress;
+        private String travelDate;
+      
+       // private Ticket tic;
 
         public Builder(String id) {
             
@@ -74,38 +86,63 @@ public class Passenger implements Serializable {
              
          }
         
-        public Builder details(String details)
+        public Builder passName(String pName)
         {
-            details = details;
+            passName = pName;
             return this;
         }
         
         public Builder phoneNumber(String pNo)
         {
-            phoneNo = pNo;
+            passPhoneNo = pNo;
             return this;
         }
         
-        public Builder dob(String dOb)
+        public Builder passDob(String dOb)
         {
-            dOB = dOb;
+            passDob = dOb;
             return this;    
             
         }
         
-        public Builder emailAd(String email)
+        public Builder passEmail(String email)
         {
-            emailAdd = email;
+            passEmail = email;
             return this;
         }
         
-        public Builder passenger(Passenger ps)
+         public Builder passAddress(String add)
+        {
+            passAddress = add;
+            return this;
+        }
+         
+         public Builder travelDate(String tDate)
+        {
+            travelDate = tDate;
+            return this;
+        }
+        
+        
+      /*  public Builder t(Ticket ti)
+        {
+            tic = ti;
+            return this;
+            
+        }
+        */
+        public Builder passenger(Passenger psg)
         {
          
-            details = ps.getDetails();
-            phoneNo = ps.getPhoneNo();
-            dOB = ps.getdOB();
-            emailAdd = ps.getEmailAdd();
+            passName = psg.getPassName();
+            passPhoneNo = psg.getPhoneNo();
+            passDob = psg.getpassDob();
+            passEmail = psg.getEmailAdd();
+            passengerID = psg.getPassengerID();
+            passAddress = psg.getAddress();
+            travelDate = psg.getTravelDate();
+        
+         //   tic = ps.getTic();
             
             return this;
         }
@@ -114,7 +151,8 @@ public class Passenger implements Serializable {
         {
             return new Passenger(this);
         }
-        
+
+       
         
     }
     
@@ -123,37 +161,41 @@ public class Passenger implements Serializable {
         return id;
     }
 
-    public String getDetails() {
-        return details;
+    public String getPassName() {
+        return passName;
     }
 
-    public String getdOB() {
-        return dOB;
+    public String getpassDob() {
+        return passDob;
     }
 
     public String getEmailAdd() {
-        return emailAdd;
+        return passEmail;
     }
 
     public String getPhoneNo() {
-        return phoneNo;
+        return passPhoneNo;
     }
 
-    public PassengerType getpT() {
-        return pT;
+    /* public Ticket getTic() {
+    return tic;
+    }
+     */
+    public String getAddress() {
+        return passAddress;
     }
 
-    public Payment getPm() {
-        return pm;
+    public String getPassengerID() {
+        return passengerID;
     }
+    
+     public String getTravelDate() {
+        return travelDate;
+    }
+    
+    
 
-    public Ticket getTic() {
-        return tic;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+   
 
     @Override
     public int hashCode() {

@@ -19,23 +19,28 @@ public class Status implements Serializable{
      
     private String statusID;
     private String statusName;
-    private String amount;
-    private String totalSeatClass;
+    private Double amount;
+  
+    
+     private Status () {
+    
+     }
+    
     
     private Status(Builder builder)
     {
         statusID = builder.statusID;
         statusName = builder.statusName;
         amount = builder.amount;
-        totalSeatClass = builder.seats;
+    
         
     }
 
     public static class Builder {
         private String statusID;
         private String statusName;
-        private String amount;
-        private String seats;
+        private Double amount;
+   
 
         public Builder(String id) {
             
@@ -44,9 +49,7 @@ public class Status implements Serializable{
         
          public Builder()
          {
-             
-             
-             
+    
          }
         
         public Builder Name(String name)
@@ -55,26 +58,19 @@ public class Status implements Serializable{
             return this;
         }
         
-        public Builder Amount(String amt)
+        public Builder Amount(Double amt)
         {
             amount = amt;
             return this;
         }
 
       
-        
-        public Builder Seats(String seat)
-        {
-            seats = seat;
-            return this;
-        }
-        
         public Builder status(Status s)
         {
             statusID = s.getStatusID();
             statusName = s.getStatusName();
             amount = s.getAmount();
-            seats = s.getTotalSeatClass();
+       
             
             return this;
             
@@ -97,16 +93,8 @@ public class Status implements Serializable{
         return statusName;
     }
 
-    public String getAmount() {
+    public Double getAmount() {
         return amount;
     }
-
-    public String getTotalSeatClass() {
-        return totalSeatClass;
-    }
-    
-    
-    
-    
     
 }

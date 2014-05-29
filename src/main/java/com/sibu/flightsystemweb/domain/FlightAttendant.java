@@ -22,136 +22,141 @@ public class FlightAttendant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-      private String name;
-    private String email;
-    private String phoneNo;
-    private String address;
-    private String dob;
+     private String fAttName;
+    private String fAttEmail;
+    private String fAttPhoneNo;
+    private String fAttAddress;
+    private String fAttDob;
+    private String flightAttendantID;
     
-     private FlightAttendant () {
+    
+    private FlightAttendant () {
+    }
+    
+    private FlightAttendant(Builder builder)
+    {
+        id = builder.id;
+        fAttName = builder.fAttName;
+        fAttEmail = builder.fAttEmail;
+        fAttPhoneNo = builder.fAttPhoneNo;
+        fAttAddress = builder.fAttAddress;
+        fAttDob = builder.fAttDob;
+        flightAttendantID = builder.flightAttendantID;
+      
         
     }
-
-  
-   private FlightAttendant(Builder builder)
-   {
-       
-       email = builder.email;
-       name = builder.name;
-       phoneNo = builder.phoneNo;
-       address = builder.address;
-       dob = builder.dob;
- 
-       
-   }
-
-   
+    
+    
     public static class Builder {
+        private Long id;
+        private String fAttName;
+        private String fAttEmail;
+        private String fAttPhoneNo;
+        private String fAttAddress;
+        private String fAttDob;
+        private String flightAttendantID;
+        
+     
 
-       
-
-        private String email;
-        private String name;
-        private String phoneNo;
-        private String address;
-        private String dob;
+        public Builder(String fID) {
+            
+            this.flightAttendantID = fID;
   
-         public Builder()
-         {
+        }
+        
+        public Builder()
+        {
+            
+        }
+        
+        public Builder id(Long id)
+        {
+            id = id;
+            return this;
+        }
+        
+        public Builder fAttEmail(String e)
+        {
+            fAttEmail = e;
+            return this;
+        }
+        
+        public Builder fAttName(String pn)
+        {
+            fAttName = pn;
+            return this;
+        }
+        
+        public Builder fAttPhoneNo(String fno)
+        {
+            fAttPhoneNo = fno;
+            return this;
+        }
+        
+        public Builder fAttAddress(String add)
+        {
+            fAttAddress = add;
+            return this;
+        }
+        
+        public Builder fAttDob(String dOb)
+        {
+            fAttDob = dOb;
+            return this;
+        }
+      
+        
+        
+        public Builder FlightAttendant(FlightAttendant p)
+        {
+            id = p.getId();
+            fAttName = p.getName();
+            fAttEmail = p.getEmail();
+            fAttPhoneNo = p.getPhoneNo();
+            fAttAddress = p.getDob();
+            fAttDob = p.getDob();
+            flightAttendantID = p.flightAttendantID;
+            
+            return this;
              
-             
-             
-         }
-
-        
-        public Builder name(String n)
-        {
-            
-            name = n;
-            return this;
-        }
-        
-        public Builder email(String em)
-        {
-            
-            email = em;
-            return this;
-        }
-        
-        public Builder phoneNo(String pNo)
-        {
-            phoneNo = pNo;
-            return this;
-        }
-        
-        public Builder address(String add)
-        {
-            address = add;
-            return this;
-        }
-        
-        public Builder dOb(String dOB)
-        {
-            dob = dOB;
-            return this;
-        }
-        
-       /* public Builder clone(FlightAttendant fa)
-        {
-            clone = fa;
-                    return this;
-            
-        }*/
-        
-        public Builder flightAttendant(FlightAttendant fa)
-        {
-         
-            name = fa.getName();
-            email = fa.getEmail();
-            phoneNo = fa.getPhoneNo();
-            address = fa.getAddress();
-            dob = fa.getDob();
-            
-            return this;
-            
         }
         
         public FlightAttendant build()
         {
-            return new FlightAttendant(this);
+           return new FlightAttendant(this);
+            
         }
         
     }
-   
-   
-     public String getEmail() {
-            return email;
-        }
 
-        public String getName() {
-            return name;
-        }
+    public String getName() {
+        return fAttName;
+    }
 
-        public String getPhoneNo() {
-            return phoneNo;
-        }
+    public String getEmail() {
+        return fAttEmail;
+    }
 
-        public String getAddress() {
-            return address;
-        }
+    public String getPhoneNo() {
+        return fAttPhoneNo;
+    }
 
-        public String getDob() {
-            return dob;
-        }
-        
+    public String getAddress() {
+        return fAttAddress;
+    }
+
+    public String getDob() {
+        return fAttDob;
+    }
 
     public Long getId() {
         return id;
     }
+    
+     public String getFlightAttendantID() {
+            return flightAttendantID;
+        }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Override
     public int hashCode() {

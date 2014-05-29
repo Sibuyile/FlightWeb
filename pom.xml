@@ -13,7 +13,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
@@ -22,23 +22,23 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>4.0.3.RELEASE</version>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+            <type>jar</type>
         </dependency>
-        <!--        <dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.0.3.RELEASE</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>6.0</version>
             <scope>provided</scope>
-        </dependency>-->
-        <!--        <dependency>
-        <groupId>javax</groupId>
-        <artifactId>javaee-api</artifactId>
-        <version>6.0</version>
-        <scope>provided</scope>
-        </dependency>-->
-        
+        </dependency>
         
         <dependency>
             <groupId>org.springframework</groupId>
@@ -107,24 +107,6 @@
             <artifactId>derby</artifactId>
             <version>10.10.1.1</version>
         </dependency>
-        
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derbyclient</artifactId>
-            <version>10.10.1.1</version>
-        </dependency>
-            
-        
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>4.3.5.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
-        </dependency>
             
         
     </dependencies>
@@ -149,7 +131,7 @@
                 <version>2.3.2</version>
                 <configuration>
                     <source>1.7</source>
-                    <target>1.7</target>
+                    <target>1.6</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
@@ -190,5 +172,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

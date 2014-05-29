@@ -27,6 +27,8 @@ public class Pilot implements Serializable {
     private String phoneNo;
     private String address;
     private String dob;
+    private String pilotID;
+
     
     private Pilot () {
     }
@@ -39,6 +41,7 @@ public class Pilot implements Serializable {
         phoneNo = builder.phoneNo;
         address = builder.address;
         dob = builder.dob;
+        pilotID = builder.pilotID;
       
         
     }
@@ -51,12 +54,13 @@ public class Pilot implements Serializable {
         private String phoneNo;
         private String address;
         private String dob;
+        private String pilotID;
         
      
 
-        public Builder(String id) {
+        public Builder(String pID) {
             
-            this.email = id;
+            this.pilotID = pID;
   
         }
         
@@ -65,9 +69,15 @@ public class Pilot implements Serializable {
             
         }
         
-        public Builder id(Long i)
+        public Builder id(Long ID)
         {
-            id = i;
+            id = ID;
+            return this;
+        }
+        
+        public Builder fAttEmail(String em)
+        {
+            email = em;
             return this;
         }
         
@@ -105,6 +115,7 @@ public class Pilot implements Serializable {
             phoneNo = p.getPhoneNo();
             address = p.getDob();
             dob = p.getDob();
+            pilotID = p.pilotID;
             
             return this;
              
@@ -141,6 +152,11 @@ public class Pilot implements Serializable {
     public Long getId() {
         return id;
     }
+    
+    public String getPilotID() {
+        return pilotID;
+    }
+    
 
 
     @Override

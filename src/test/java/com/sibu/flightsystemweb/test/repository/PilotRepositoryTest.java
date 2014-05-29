@@ -37,7 +37,7 @@ public class PilotRepositoryTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-     @Test
+     
      
   /*   public void hello() {
          
@@ -48,14 +48,16 @@ public class PilotRepositoryTest {
          
      
      }*/
+    @Test
      public void createPilot()
      {
          pilotRep = ctx.getBean(PilotRepository.class);
      
-          Pilot p = new Pilot.Builder("ssmith@gmail.com").name("Sibuyile")
+          Pilot p = new Pilot.Builder("100P").name("Sibuyile")
                   .phoneNo("0436553597")
                   .address("2636 Varha Road")
                   .dob("7 February 1990")
+                  
                   .build();
          pilotRep.save(p);
          id = p.getId();
@@ -81,7 +83,7 @@ public class PilotRepositoryTest {
      private void updatePilot(){
          pilotRep = ctx.getBean(PilotRepository.class);
          Pilot pilot = pilotRep.findOne(id);
-         Pilot updatedPilot = new Pilot.Builder("ssmith@gmail.com")
+         Pilot updatedPilot = new Pilot.Builder("100P")
                  .Pilot(pilot)
                  .name("Sibu")
                  .build();
@@ -93,7 +95,8 @@ public class PilotRepositoryTest {
          
      }
      
-     @Test(dependsOnMethods = "updatePilot")
+     
+    /* @Test(dependsOnMethods = "updatePilot")
      private void deletePilot(){
          pilotRep = ctx.getBean(PilotRepository.class);
          Pilot pilot = pilotRep.findOne(id);
@@ -103,13 +106,14 @@ public class PilotRepositoryTest {
          
          Assert.assertNull(deletedPilot);
          
-     }
+     }*/
      
 
     @BeforeClass
     public static void setUpClass() throws Exception {
         
          ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
+         //flightCapacity = new FlightCapcity.Builder("101").build();
     }
 
     @AfterClass

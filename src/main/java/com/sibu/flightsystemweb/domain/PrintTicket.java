@@ -7,76 +7,53 @@
 package com.sibu.flightsystemweb.domain;
 
 import java.io.Serializable;
-import java.util.Objects;
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author stud
  */
-@Embeddable
-public class PrintTicket implements Serializable{
+@Entity
+public class PrintTicket implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     
-    private String printTicketID;
-
-    private String print;
-    
-     private PrintTicket () {
-    }
-    
-    private PrintTicket(Builder builder)
-    {
-        printTicketID = builder.printTicketID;
-        print = builder.print;
+    public Long getId() {
+        return id;
     }
 
-    public static class Builder {
-        private String printTicketID;
-        private String print;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-        public Builder(String id) {
-            
-            this.printTicketID = id;
-            
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof PrintTicket)) {
+            return false;
         }
-        
-         public Builder()
-         {
-             
-             
-             
-         }
-        
-        public Builder print(String p)
-        {
-            print = p;
-            return this;
+        PrintTicket other = (PrintTicket) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
         }
-        
-        public Builder printTicket(PrintTicket prt)
-        {
-            printTicketID = prt.getPrintTicketID();
-            print = prt.getPrint();
-            
-            return this;
-        }
-        
-        public PrintTicket build()
-        {
-            return new PrintTicket(this);
-        }
+        return true;
     }
 
-    public String getPrintTicketID() {
-        return printTicketID;
+    @Override
+    public String toString() {
+        return "com.sibu.flightsystemweb.domain.PrintTicket[ id=" + id + " ]";
     }
-
-    public String getPrint() {
-        return print;
-    }
-    
-    
-   
-    
     
 }
